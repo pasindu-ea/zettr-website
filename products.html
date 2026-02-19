@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | Zettr</title>
+
+  <link rel="icon" type="image/png" href="asset/img/zettr_logo.png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Questrial&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Questrial', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      background-color: #f2f2f2;
+      color: #213547;
+    }
+
+    /* Header Styles */
+    .header-section {
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-family: 'Questrial', sans-serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #3dd5e8 !important;
+    }
+
+    /* Product Section Styles */
+    .product-section {
+      padding-top: 160px;
+      background-color: #f2f2f2;
+    }
+
+    .product-row {
+      min-height: 400px;
+    }
+
+    .product-image-col {
+      padding: 0;
+    }
+
+    .product-image-wrapper {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-content-col {
+      display: flex;
+      align-items: center;
+      background-color: #e8e8e8;
+      padding: 0;
+    }
+
+    .product-content {
+      padding: 30px 60px;
+      width: 100%;
+    }
+
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #213547;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .product-description {
+      font-family: 'Questrial', sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #213547;
+      margin-bottom: 25px;
+    }
+
+    /* Features Grid Section */
+    .features-section {
+      background-color: #e8e8e8;
+      padding: 80px 0;
+    }
+
+    .feature-card {
+      background-color: #f2f2f2;
+      padding: 50px 40px;
+      height: 100%;
+      border-radius: 0;
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #213547;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+
+    .feature-description {
+      font-family: 'Questrial', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #213547;
+      margin: 0;
+    }
+
+    /* Footer Styles */
+    .footer-section {
+      background-color: #f2f2f2;
+      color: #333333;
+      padding: 40px 0 20px;
+    }
+
+    .footer-visma-logo {
+      max-width: 150px;
+      height: auto;
+    }
+
+    .footer-contact-text {
+      font-family: 'Questrial', sans-serif;
+      font-size: 16px;
+      color: #333333;
+      margin: 0;
+    }
+
+    .footer-copyright {
+      font-family: 'Questrial', sans-serif;
+      font-size: 14px;
+      color: #333333;
+      margin-top: 30px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .product-section {
+        padding-top: 120px;
+      }
+
+      .product-row {
+        min-height: auto;
+      }
+
+      .product-image-wrapper {
+        min-height: 300px;
+      }
+
+      .product-content {
+        padding: 30px 20px;
+      }
+
+      .product-title {
+        font-size: 36px;
+      }
+
+      .product-description {
+        font-size: 16px;
+      }
+
+      .features-section {
+        padding: 40px 0;
+      }
+
+      .feature-card {
+        padding: 30px 25px;
+        margin-bottom: 20px;
+      }
+
+      .feature-title {
+        font-size: 28px;
+      }
+
+      .feature-description {
+        font-size: 15px;
+      }
+
+      .logo-text {
+        font-size: 32px;
+      }
+
+      .nav-link {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header Component -->
+  <div id="header-component"></div>
+
+  <!-- Product Section -->
+  <section class="product-section">
+    <div class="container-fluid px-0">
+      <div class="row g-0 product-row">
+        <!-- Left side - Content -->
+        <div class="col-lg-6 product-content-col">
+          <div class="product-content">
+            <h1 class="product-title">B2B2B Payment Platform</h1>
+            
+            <p class="product-description">
+              Unlock new revenue streams to your business by offering your customers their preferred payment methods. Make money on every transaction you process through your customers.
+            </p>
+            
+            <p class="product-description">
+              Your focus is getting your customers to use your payment system. Onboard your customers as sub-merchants in your payment system. Zettr handles the rest!
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right side - Image -->
+        <div class="col-lg-6 product-image-col">
+          <div class="product-image-wrapper">
+            <img src="asset/img/product-1.avif" alt="B2B2B Payment Platform" class="product-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech, Security and Compliance Section -->
+  <section class="product-section" style="padding-top: 0;">
+    <div class="container-fluid px-0">
+      <div class="row g-0 product-row">
+        <!-- Left side - Image -->
+        <div class="col-lg-6 product-image-col">
+          <div class="product-image-wrapper">
+            <img src="asset/img/product-2.avif" alt="Tech, security and compliance" class="product-image" />
+          </div>
+        </div>
+        
+        <!-- Right side - Content -->
+        <div class="col-lg-6 product-content-col">
+          <div class="product-content">
+            <h2 class="product-title">Tech, security and compliance</h2>
+            
+            <p class="product-description">
+              Operating a payment platform can be easy. That is because Zettr takes care of the maintenance of all backoffice and payment methods. We also take care of everything related to security and compliance. <a href="#" class="text-decoration-underline" style="color: #213547;">Read more in our Thrust Center.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Feature 1: Transactional Pricing -->
+        <div class="col-12 col-md-6">
+          <div class="feature-card">
+            <h3 class="feature-title">Transactional Pricing</h3>
+            <p class="feature-description">
+              Set your own transaction prices towards your customers and decide your own revenue margins. By integrating payments into your core product you can increase customer lifetime value.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2: Onboard your customers easily -->
+        <div class="col-12 col-md-6">
+          <div class="feature-card">
+            <h3 class="feature-title">Onboard your customers easily</h3>
+            <p class="feature-description">
+              Your customers can onboard as a sub-merchant of you through one single interface. KYC and security is handled by Zettr.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3: Automatic payouts -->
+        <div class="col-12 col-md-6">
+          <div class="feature-card">
+            <h3 class="feature-title">Automatic payouts</h3>
+            <p class="feature-description">
+              Payouts are handled by Zettr and paid out to your customers for their transactions. The margin between the transaction cost and the transaction price, set by you, is also automatically paid out to your business.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4: Fully whitelabel -->
+        <div class="col-12 col-md-6">
+          <div class="feature-card">
+            <h3 class="feature-title">Fully whitelabel</h3>
+            <p class="feature-description">
+              Both the Zettr backoffice and the checkout with the available payment methods are built to be whitelabeled. Strengthen your brand and customer loyalty by branding the payment platform as your own.
+            </p>
+          </div>
+        </div>
+
+         <!-- Feature 5: Fully whitelabel -->
+        <div class="col-12 col-md-6">
+          <div class="feature-card">
+            <h3 class="feature-title">One backoffice </h3>
+            <p class="feature-description">
+              Get insight to your customers payments and transactional data through one backoffice. Manage onboarding of your customers through the same backoffice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Component Loader -->
+  <script src="asset/js/components.js"></script>
+  
+  <script>
+    // Load Header and Footer Components
+    loadComponent('header-component', 'asset/common/header.html');
+    loadComponent('footer-component', 'asset/common/footer.html');
+  </script>
+  
+</body>
+</html>
